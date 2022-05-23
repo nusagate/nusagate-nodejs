@@ -35,6 +35,8 @@ class Nusagate {
           query?.page ? query?.page : ''
         }&perPage=${query?.perPage ? query?.perPage : ''}&status=${
           query?.status ? query?.status : ''
+        }&fromDate=${query?.fromDate ? query?.fromDate : ''}&toDate=${
+          query?.toDate ? query?.toDate : ''
         }&orderBy=${query?.orderBy ? query?.orderBy : ''}&sortBy=${
           query?.sortBy ? query?.sortBy : ''
         }&search=${query?.search ? query?.search : ''}`,
@@ -42,7 +44,6 @@ class Nusagate {
       );
       return response.data;
     } catch (error) {
-      console.log('error', error);
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
     }
@@ -56,7 +57,6 @@ class Nusagate {
       );
       return response.data;
     } catch (error) {
-      console.log('error', error);
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
     }
@@ -109,14 +109,15 @@ class Nusagate {
       const response = await axios.get(
         `${this.#getBaseUrl()}/v1/withdrawals?page=${
           query?.page ? query?.page : ''
-        }&perPage=${query?.perPage ? query?.perPage : ''}&status=${
+        }&perPage=${query?.perPage ? query?.perPage : ''}&fromDate=${
+          query?.fromDate ? query?.fromDate : ''
+        }&toDate=${query?.toDate ? query?.toDate : ''}&status=${
           query?.status ? query?.status : ''
         }`,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
       return response.data;
     } catch (error) {
-      console.log('error', error);
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
     }
@@ -130,7 +131,6 @@ class Nusagate {
       );
       return response.data;
     } catch (error) {
-      console.log('error', error);
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
     }
