@@ -27,3 +27,35 @@ const nusagateClient = new Nusagate({
   secretKey: '7be9c28...',
 });
 ```
+
+### Create Invoice
+
+You can see example [here](examples/invoices/create-invoice.js).
+
+### Get Invoices
+
+You can see example [here](examples/invoices/invoice-list.js).
+
+### Get Invoice By Id
+
+You can see example [here](examples/invoices/invoice-detail.js).
+
+### Void Invoice
+
+You can see example [here](examples/invoices/void-invoice.js).
+
+### Create Withdrawal
+
+You can see example [here](examples/withdrawals/create-withdrawal.js).
+
+### Get Withdrawals
+
+You can see example [here](examples/withdrawals/withdrawal-list.js).
+
+### Get Withdrawal By Id
+
+You can see example [here](examples/withdrawals/withdrawal-detail.js).
+
+### Calculate Withdrawal
+
+You can see example [here](examples/withdrawals/calculate-withdrawal.js).

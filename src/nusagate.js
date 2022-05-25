@@ -21,7 +21,7 @@ class Nusagate {
         data,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
-      return response.data;
+      return response.data.data;
     } catch (error) {
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
@@ -55,7 +55,7 @@ class Nusagate {
         `${this.#getBaseUrl()}/v1/invoices/${id}`,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
-      return response.data;
+      return response.data.data;
     } catch (error) {
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
@@ -66,10 +66,13 @@ class Nusagate {
     try {
       const response = await axios.post(
         `${this.#getBaseUrl()}/v1/invoices/${id}/void`,
-        data,
+        {},
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
-      return response.data;
+      return {
+        referenceId: response.data.data.referenceId,
+        message: response.data.meta.message,
+      };
     } catch (error) {
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
@@ -83,7 +86,7 @@ class Nusagate {
         data,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
-      return response.data;
+      return response.data.data;
     } catch (error) {
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
@@ -97,7 +100,7 @@ class Nusagate {
         data,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
-      return response.data;
+      return response.data.data;
     } catch (error) {
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
@@ -129,7 +132,7 @@ class Nusagate {
         `${this.#getBaseUrl()}/v1/withdrawals/${id}`,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
-      return response.data;
+      return response.data.data;
     } catch (error) {
       const { statusCode, ...restError } = error?.response?.data?.meta;
       throw new Error(JSON.stringify(restError));
