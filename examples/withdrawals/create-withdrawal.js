@@ -7,7 +7,7 @@ const nusagateClient = new Nusagate({
 });
 
 const payload = {
-  address: 'TUe4Uat7JFXj9zG8B8HXEeZcRZYfPU1twP',
+  address: 'TUe4Uat7JFXj9zG8...',
   amount: 169,
   currencyCode: 'TRX',
 };

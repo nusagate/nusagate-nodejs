@@ -79,6 +79,33 @@ class Nusagate {
     }
   }
 
+  async availableCurrency() {
+    try {
+      const response = await axios.get(
+        `${this.#getBaseUrl()}/v1/invoices/available-currency`,
+        { auth: { username: this.apiKey, password: this.secretKey } },
+      );
+      return response.data.data;
+    } catch (error) {
+      const { statusCode, ...restError } = error?.response?.data?.meta;
+      throw new Error(JSON.stringify(restError));
+    }
+  }
+
+  async estimateAmount(data) {
+    try {
+      const response = await axios.post(
+        `${this.#getBaseUrl()}/v1/invoices/estimate-amount`,
+        data,
+        { auth: { username: this.apiKey, password: this.secretKey } },
+      );
+      return response.data.data;
+    } catch (error) {
+      const { statusCode, ...restError } = error?.response?.data?.meta;
+      throw new Error(JSON.stringify(restError));
+    }
+  }
+
   async createWithdrawal(data) {
     try {
       const response = await axios.post(

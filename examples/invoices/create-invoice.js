@@ -11,8 +11,8 @@ const payload = {
   description: 'hehe...',
   price: 560000,
   dueDate: '2022-05-26T19:26:07.255Z',
-  email: 'jackfrost2398@gmail.com',
-  phoneNumber: '085875517882',
+  mail: 'john@gmail.com',
+  phoneNumber: '62813123...',
 };
 
 // create invoice

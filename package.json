@@ -13,7 +13,8 @@
     "url": "git+https://github.com/nusagate/nusagate-nodejs.git"
   },
   "keywords": [
-    "WDS"
+    "payment gateway",
+    "nusagate"
   ],
   "bugs": {
     "url": "https://github.com/nusagate/nusagate-nodejs/issues"

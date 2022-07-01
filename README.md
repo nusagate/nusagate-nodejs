@@ -32,30 +32,160 @@ const nusagateClient = new Nusagate({
 
 You can see example [here](examples/invoices/create-invoice.js).
 
+```js
+const payload = {
+  externalId: 'HEHE-00011',
+  description: 'hehe...',
+  price: 560000,
+  dueDate: '2022-05-26T19:26:07.255Z',
+  email: 'john@gmail.com',
+  phoneNumber: '62813123...',
+};
+
+nusagateClient
+  .createInvoice(payload)
+  .then((data) => {
+    console.log('data:', data);
+  })
+  .catch((error) => {
+    console.log('Error occured:', JSON.parse(error.message));
+  });
+```
+
 ### Get Invoices
 
 You can see example [here](examples/invoices/invoice-list.js).
+
+```js
+const query = {
+  page: 1,
+  perPage: 2,
+  fromDate: '2022-04-26T19:26:07.255Z',
+  toDate: '2022-05-26T19:26:07.255Z',
+  orderBy: 'DESC',
+  sortBy: 'createdAt',
+  status: 'UNPAID', // status: ['PAID', 'UNPAID', 'VOID', 'COMPLETED']
+  search: '',
+};
+
+// get invoice list
+nusagateClient
+  .getInvoices(query)
+  .then((data) => {
+    console.log('data:', data);
+  })
+  .catch((error) => {
+    console.log('Error occured:', JSON.parse(error.message));
+  });
+```
 
 ### Get Invoice By Id
 
 You can see example [here](examples/invoices/invoice-detail.js).
 
+```js
+nusagateClient
+  .getInvoiceById('b0590d28-cae3-4c31-9e96-45280286430d')
+  .then((data) => {
+    console.log('data:', data);
+  })
+  .catch((error) => {
+    console.log('Error occured:', JSON.parse(error.message));
+  });
+```
+
 ### Void Invoice
 
 You can see example [here](examples/invoices/void-invoice.js).
+
+```js
+nusagateClient
+  .voidInvoice('b0590d28-cae3-4c31-9e96-45280286430d')
+  .then((data) => {
+    console.log('data:', data);
+  })
+  .catch((error) => {
+    console.log('Error occured:', JSON.parse(error.message));
+  });
+```
 
 ### Create Withdrawal
 
 You can see example [here](examples/withdrawals/create-withdrawal.js).
 
+```js
+const payload = {
+  address: 'TUe4Uat7JFXj9zG8...',
+  amount: 169,
+  currencyCode: 'TRX',
+};
+
+nusagateClient
+  .createWithdrawal(payload)
+  .then((data) => {
+    console.log('data:', data);
+  })
+  .catch((error) => {
+    console.log('Error occured:', JSON.parse(error.message));
+  });
+```
+
 ### Get Withdrawals
 
 You can see example [here](examples/withdrawals/withdrawal-list.js).
+
+```js
+const query = {
+  page: 1,
+  perPage: 2,
+  fromDate: '2022-04-26T19:26:07.255Z',
+  toDate: '2022-05-26T19:26:07.255Z',
+  status: '', // status: ['PENDING', 'WAITING', 'SUBMITTED', 'CONFIRMED', 'REJECTED', 'CANCELED']
+};
+
+nusagateClient
+  .getWithdrawals(query)
+  .then((data) => {
+    console.log('data:', data);
+  })
+  .catch((error) => {
+    console.log('Error occured:', JSON.parse(error.message));
+  });
+```
 
 ### Get Withdrawal By Id
 
 You can see example [here](examples/withdrawals/withdrawal-detail.js).
 
+```js
+nusagateClient
+  .getWithdrawalById('5a54a11d-ffda-46cd-b389-fc602b9fdb41')
+  .then((data) => {
+    console.log('data:', data);
+  })
+  .catch((error) => {
+    console.log('Error occured:', JSON.parse(error.message));
+  });
+```
+
 ### Calculate Withdrawal
 
 You can see example [here](examples/withdrawals/calculate-withdrawal.js).
+
+```js
+const payload = {
+  address: 'TUe4Uat7JFXj9zG8...',
+  amount: 169,
+  currencyCode: 'TRX',
+};
+
+// calculate withdrawal
+nusagateClient
+  .calculateWithdrawal(payload)
+  .then((data) => {
+    console.log('data:', data);
+  })
+  .catch((error) => {
+    console.log('Error occured:', JSON.parse(error.message));
+  });
+```
