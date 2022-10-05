@@ -6,17 +6,15 @@ const nusagateClient = new Nusagate({
   secretKey: 'YOUR_SECRET_KEY',
 });
 
-const query = {
-  page: 1,
-  perPage: 2,
-  fromDate: '2022-04-26T19:26:07.255Z',
-  toDate: '2022-05-26T19:26:07.255Z',
-  status: '',
+const payload = {
+  address: 'TUe4Uat7JFXj9zG8...',
+  amount: 169,
+  currencyCode: 'TRX',
 };
 
-// get withdrawal list
+// calculate withdrawal
 nusagateClient
-  .getWithdrawals(query)
+  .calculateTransfer(payload)
   .then((data) => {
     console.log('data:', data);
   })

@@ -7,14 +7,15 @@ const nusagateClient = new Nusagate({
 });
 
 const payload = {
+  externalId: 'EXAMPLE_EXTERNAL_ID',
   address: 'TUe4Uat7JFXj9zG8...',
   amount: 169,
   currencyCode: 'TRX',
 };
 
-// calculate withdrawal
+// create withdrawal
 nusagateClient
-  .calculateWithdrawal(payload)
+  .createTransfer(payload)
   .then((data) => {
     console.log('data:', data);
   })

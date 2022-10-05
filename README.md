@@ -109,12 +109,13 @@ nusagateClient
   });
 ```
 
-### Create Withdrawal
+### Create Transfer
 
-You can see example [here](examples/withdrawals/create-withdrawal.js).
+You can see example [here](examples/transfers/create-transfer.js).
 
 ```js
 const payload = {
+  externalId: 'EXAMPLE_EXTERNAL_ID',
   address: 'TUe4Uat7JFXj9zG8...',
   amount: 169,
   currencyCode: 'TRX',
@@ -130,9 +131,9 @@ nusagateClient
   });
 ```
 
-### Get Withdrawals
+### Get Transfers
 
-You can see example [here](examples/withdrawals/withdrawal-list.js).
+You can see example [here](examples/transfers/transfer-list.js).
 
 ```js
 const query = {
@@ -153,9 +154,9 @@ nusagateClient
   });
 ```
 
-### Get Withdrawal By Id
+### Get Transfer By Id
 
-You can see example [here](examples/withdrawals/withdrawal-detail.js).
+You can see example [here](examples/transfers/transfer-detail.js).
 
 ```js
 nusagateClient
@@ -168,9 +169,9 @@ nusagateClient
   });
 ```
 
-### Calculate Withdrawal
+### Calculate Transfer
 
-You can see example [here](examples/withdrawals/calculate-withdrawal.js).
+You can see example [here](examples/transfers/calculate-transfer.js).
 
 ```js
 const payload = {

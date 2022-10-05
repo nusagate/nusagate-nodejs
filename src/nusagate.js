@@ -106,10 +106,10 @@ class Nusagate {
     }
   }
 
-  async createWithdrawal(data) {
+  async createTransfer(data) {
     try {
       const response = await axios.post(
-        `${this.#getBaseUrl()}/v1/withdrawals/`,
+        `${this.#getBaseUrl()}/v1/merchant-transfers/`,
         data,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
@@ -120,10 +120,10 @@ class Nusagate {
     }
   }
 
-  async calculateWithdrawal(data) {
+  async calculateTransfer(data) {
     try {
       const response = await axios.post(
-        `${this.#getBaseUrl()}/v1/withdrawals/calculate/`,
+        `${this.#getBaseUrl()}/v1/merchant-transfers/calculate/`,
         data,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
@@ -134,10 +134,10 @@ class Nusagate {
     }
   }
 
-  async getWithdrawals(query) {
+  async getTransfers(query) {
     try {
       const response = await axios.get(
-        `${this.#getBaseUrl()}/v1/withdrawals?page=${
+        `${this.#getBaseUrl()}/v1/merchant-transfers?page=${
           query?.page ? query?.page : ''
         }&perPage=${query?.perPage ? query?.perPage : ''}&fromDate=${
           query?.fromDate ? query?.fromDate : ''
@@ -153,10 +153,10 @@ class Nusagate {
     }
   }
 
-  async getWithdrawalById(id) {
+  async getTransferById(id) {
     try {
       const response = await axios.get(
-        `${this.#getBaseUrl()}/v1/withdrawals/${id}`,
+        `${this.#getBaseUrl()}/v1/merchant-transfers/${id}`,
         { auth: { username: this.apiKey, password: this.secretKey } },
       );
       return response.data.data;

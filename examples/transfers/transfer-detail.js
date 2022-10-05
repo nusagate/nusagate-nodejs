@@ -6,15 +6,9 @@ const nusagateClient = new Nusagate({
   secretKey: 'YOUR_SECRET_KEY',
 });
 
-const payload = {
-  address: 'TUe4Uat7JFXj9zG8...',
-  amount: 169,
-  currencyCode: 'TRX',
-};
-
-// create withdrawal
+// get invoice by id
 nusagateClient
-  .createWithdrawal(payload)
+  .getTransferById('5a54a11d-ffda-46cd-b389-fc602b9fdb41')
   .then((data) => {
     console.log('data:', data);
   })

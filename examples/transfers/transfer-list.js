@@ -6,9 +6,17 @@ const nusagateClient = new Nusagate({
   secretKey: 'YOUR_SECRET_KEY',
 });
 
-// get invoice by id
+const query = {
+  page: 1,
+  perPage: 2,
+  fromDate: '2022-04-26T19:26:07.255Z',
+  toDate: '2022-05-26T19:26:07.255Z',
+  status: '',
+};
+
+// get withdrawal list
 nusagateClient
-  .getWithdrawalById('5a54a11d-ffda-46cd-b389-fc602b9fdb41')
+  .getTransferById(query)
   .then((data) => {
     console.log('data:', data);
   })
