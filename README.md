@@ -122,7 +122,7 @@ const payload = {
 };
 
 nusagateClient
-  .createWithdrawal(payload)
+  .createTransfer(payload)
   .then((data) => {
     console.log('data:', data);
   })
@@ -145,7 +145,7 @@ const query = {
 };
 
 nusagateClient
-  .getWithdrawals(query)
+  .getTransfers(query)
   .then((data) => {
     console.log('data:', data);
   })
@@ -160,7 +160,7 @@ You can see example [here](examples/transfers/transfer-detail.js).
 
 ```js
 nusagateClient
-  .getWithdrawalById('5a54a11d-ffda-46cd-b389-fc602b9fdb41')
+  .getTransferById('5a54a11d-ffda-46cd-b389-fc602b9fdb41')
   .then((data) => {
     console.log('data:', data);
   })
@@ -180,9 +180,9 @@ const payload = {
   currencyCode: 'TRX',
 };
 
-// calculate withdrawal
+// calculate transfer
 nusagateClient
-  .calculateWithdrawal(payload)
+  .calculateTransfer(payload)
   .then((data) => {
     console.log('data:', data);
   })
